@@ -1,11 +1,16 @@
+const {soportN1} = require('../handlers/suporteHandler');
+
 function criar(dados) {
     console.log("2 - service recebeu", dados);
     const chamado = {
         id:1,
         titulo:dados.titulo,
+        prioridade:dados.prioridade,
         status:"aberto"
     }
-    console.log("3 - SERVICE criou", chamado);
+    chamado.responsavel = suporteN1(chamado);
+    
+    console.log("3 - SERVICE criou", chamado)
     return chamado
 }
 module.exports = {criar};
